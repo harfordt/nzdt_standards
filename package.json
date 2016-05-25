@@ -16,6 +16,6 @@
     "body-parser": "",
     "express": "",
     "hbs": "",
-    "mysql"
+    "mysql": ""
   }
 }
