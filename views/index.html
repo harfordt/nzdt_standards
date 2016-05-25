@@ -1,0 +1,52 @@
+<html>
+
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>NZ Technology Standards</title>
+
+  <link href="https://cdn.jsdelivr.net/semantic-ui/2.1.8/semantic.min.css" rel="stylesheet">
+  <style>
+    a {
+      color: inherit;
+    }
+    
+    .nzdt_center {
+      text-align: center;
+    }
+    
+    h1 {
+      margin-top: 1em;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="ui center aligned header" style="margin:1em 0 1em 0;">NZ Technology Standards</h1>
+  <div class="doubling stackable six column ui grid container ">{{#each standards}}
+
+    <div class="column ">
+      <a href="/as/{{number}} ">
+        <h4 class="ui top attached header nzdt_center ">{{number}} - {{subject_reference_number}}</h4>
+        <div class="ui bottom attached segment ">{{title}}
+          <br/> <strong>Level:</strong> {{level}}
+          <br/> <strong>Credits:</strong> {{credits}}
+        </div>
+      </a>
+    </div>
+
+    {{/each}}
+  </div>
+  <footer>
+    <p>
+      <a href="/ ">Home</a>
+    </p>
+  </footer>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/semantic-ui/2.1.8/semantic.min.js "></script>
+</body>
+
+</html>
