@@ -1,58 +1,49 @@
 var express = require('express');
 var app = express();
-var url = require("url");
-var mysql = require('mysql');
-
-app.use(express.static('public'));
 
 
-app.get('/index.html', function (req, res) {
-  res.sendFile(__dirname + "/" + "index.html");
-  console.log("hi");
-  res.end();
-})
-
-/* wildcard for standard number */
-app.get('/as*', function (req, res) {
-  var pathname = url.parse(req.url).pathname;
-  console.log("Request for " + pathname + " received.");
+var hbs = require('hbs');
 
 
+var standardEngine = require('./standard_info');
 
-  // database deets
-  var connection = mysql.createConnection({
-    host: 'localhost',
-    database: 'nzdt',
-    user: 'nzdt_user',
-    password: 'smashsmash'
-  });
+var bodyParser = require('body-parser');
 
 
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 
-  // connect to the DB
-  connection.connect(function (err) {
-    if (err) {
-      console.error('error connecting: ' + err.stack);
-      return;
-    }
-
-    console.log('connected as id ' + connection.threadId);
-  });
-
-
-  connection.query('SELECT title FROM standard WHERE number=91633', function (err, rows, fields) {
-    if (err) throw err;
-    console.log('The solution is: ', rows[0].title);
-  });
-
-  connection.end();
+app.listen(server_port, server_ip_address, function () {
+  console.log("Listening on " + server_ip_address + ", server_port " + port)
 });
 
-var server = app.listen(8081, function () {
+app.set('view engine', 'html');
+app.engine('html', hbs.__express);
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+// configure views path
+app.set('views', __dirname + '/views');
 
-  var host = server.address().address
-  var port = server.address().port
+app.get('/', function (req, res) {
+  standardEngine.allStandards(res);
+  //  res.render('index', {
+  //    //    title: "NZC Technology Achievement Standard Info",
+  //    //standards: standardEngine.standardHeaderInfo()
+  //    //standards: standardEngine.aStandard()
+  //    number: std.number,
+  //    title: std.title
+  //  });
+});
 
-  console.log("Example app listening at http://%s:%s", host, port)
+app.get('/about', function (req, res) {
+  res.render('about', {
+    title: "About Me"
+  });
+});
 
-})
+app.get('/as/:number', function (req, res) {
+  standardEngine.aStandard(req.params.number, res);
+});
+
+app.listen(3000);
