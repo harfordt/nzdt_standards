@@ -2,7 +2,20 @@
   "name": "nz-tech-standards",
   "version": "0.0.1",
   "scripts": {
-    "start": "node app.js"
+    "start": "node server.js"
   },
-  "main": "app.js"
+  "main": "server.js",
+  "keywords": [],
+  "author": "harfordt",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harfordt/nzdt_standards.git"
+  },
+  "dependencies": {
+    "body-parser": "",
+    "express": "",
+    "hbs": "",
+    "mysql"
+  }
 }
