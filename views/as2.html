@@ -1,0 +1,38 @@
+<style>
+  #standard_object {
+    width: 100%;
+    min-height: 80vh;
+  }
+  
+  
+</style>
+
+</head>
+
+<body>
+  <div class="main ui container">
+    <h1>NZ Technology Standards</h1>
+    <div class="ui top attached stackable tabular my menu">
+      <a class="item active" data-tab="standard-tab">Standard</a>
+      <a class="item" data-tab="clarification-tab">Clarification</a>
+      <a class="item" data-tab="pdf-tab">PDFs</a>
+      <a class="item" data-tab="exemplar-tab">Exemplars</a>
+    </div>
+
+    <div class="ui bottom attached tab segment active" data-tab="standard-tab">
+      
+      <h2>Embedded/imported pdf</h2>
+      <object id="standard_object" data="{{standard}}" type="application/pdf">
+        <embed id="standard_embed" src="{{standard}}" type="application/pdf" />
+      </object>
+    </div>
+
+    <div class="ui bottom attached tab segment" data-tab="clarification-tab">
+      <h2>Clarification</h2> {{clarification}}
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="pdf-tab">
+      <h4>pdf documents</h4>
+      
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="exemplar-tab">yo</div>
+  </div>

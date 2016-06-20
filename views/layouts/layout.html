@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -8,12 +9,7 @@
 
   <title>NZ Technology Standards</title>
 
-  <link href="https://cdn.jsdelivr.net/semantic-ui/2.1.8/semantic.min.css" rel="stylesheet">
-</head>
-
-<body>
-
-  {{{ body }}}
+  <link href="https://cdn.jsdelivr.net/semantic-ui/2.1.8/semantic.min.css" rel="stylesheet"> {{{ body }}}
 
   <footer>
     <p>
@@ -22,6 +18,30 @@
   </footer>
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/semantic-ui/2.1.8/semantic.min.js "></script>
-</body>
+  <script src="../static/js/underscore.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      
+      /* sets up the tabs to be tabs */
+      $('.my.menu .item').tab({
+        history: false
+      });
+      
+      /* unescapes html entities */
+//      var std_object=$('#standard_object').html();
+//      std_object=_.unescape(std_object);
+//      $('#standard_object').html(std_object);
+//      var std_object=$(".;
+      
+      var clarification_html = $('div[data-tab="clarification-tab"]').html();
+      clarification_html = _.unescape(clarification_html); //uses underscore.js
+      $('div[data-tab="clarification-tab"]').html(clarification_html);
+      
+      /* removes */
+      $('#prevNext').remove();
+      
+    });
+  </script>
+  </body>
 
 </html>

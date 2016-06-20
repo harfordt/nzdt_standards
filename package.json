@@ -13,9 +13,12 @@
     "url": "https://github.com/harfordt/nzdt_standards.git"
   },
   "dependencies": {
-    "body-parser": "",
-    "express": "",
-    "hbs": "",
-    "mysql": ""
+    "body-parser": "latest",
+    "express": "latest",
+    "hbs": "latest",
+    "mysql": "latest",
+    "request": "latest",
+    "cheerio": "latest",
+    "underscore": "latest"
   }
 }

@@ -1,9 +1,131 @@
-<h1>NZ Technology Standards</h1>
+<style>
+  #standard {
+    width: 50%;
+    min-height: 50vh;
+  }
+  
+  td {
+    vertical-align: top;
+  }
+</style>
 
-<div class="ui grid container">
-  Number: {{details.number}}
-  <br/>Title: {{details.title}}</a>
-  <br/> Version: {{details.version}}
-  <br/> Credits: {{details.credits}}
-  <br/>
-</div>
+</head>
+
+<body>
+  <div class="main ui container">
+    <h1>NZ Technology Standards</h1>
+    <div class="ui top attached stackable tabular my menu">
+      <a class="item active" data-tab="standard-tab">Standard</a>
+      <a class="item" data-tab="clarification-tab">Clarification</a>
+      <a class="item" data-tab="pdf-tab">PDFs</a>
+      <a class="item" data-tab="exemplar-tab">Exemplars</a>
+    </div>
+
+    <div class="ui bottom attached tab segment active" data-tab="standard-tab">
+      <h2>From the database, nicely formatted</h2>
+      <h4>AS{{details.number}} - {{details.title}}</h4>
+      <table class="ui definition table">
+
+        <tbody>
+          <tr>
+            <td>Number</td>
+            <td>{{details.number}}</td>
+          </tr>
+          <tr>
+            <td>Title</td>
+            <td>{{details.title}}</td>
+          </tr>
+          <tr>
+            <td>Version</td>
+            <td>{{details.version}}</td>
+          </tr>
+          <tr>
+            <td>Credits</td>
+            <td>{{details.credits}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <table class="ui celled structured table">
+        <thead>
+          <tr>
+            <th>Achievement</th>
+            <th>Merit</th>
+            <th>Excellence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{details.achievement_criteria}}</td>
+            <td>{{details.merit_criteria}}</td>
+            <td>{{details.excellence_criteria}}</td>
+          </tr>
+          <tr>
+            <td>EN2
+              <ul>
+                <li>{{details.en2_a_1}}</li>{{#if details.en2_a_2}}
+                <li>{{details.en2_a_2}}</li>{{/if}} {{#if details.en2_a_3}}
+                <li>{{details.en2_a_3}}</li>{{/if}} {{#if details.en2_a_4}}
+                <li>{{details.en2_a_4}}</li>{{/if}} {{#if details.en2_a_5}}
+                <li>{{details.en2_a_5}}</li>{{/if}} {{#if details.en2_a_6}}
+                <li>{{details.en2_a_6}}</li>{{/if}}
+              </ul>
+            </td>
+            <td>EN2
+              <ul>
+                <li>{{details.en2_m_1}}</li>{{#if details.en2_m_2}}
+                <li>{{details.en2_m_2}}</li>{{/if}}{{#if details.en2_m_3}}
+                <li>{{details.en2_m_3}}</li>{{/if}}{{#if details.en2_m_4}}
+                <li>{{details.en2_m_4}}</li>{{/if}}{{#if details.en2_m_5}}
+                <li>{{details.en2_m_5}}</li>{{/if}}{{#if details.en2_m_6}}
+                <li>{{details.en2_m_6}}</li>{{/if}}
+              </ul>
+            </td>
+            <td>EN2
+              <ul>
+                <li>{{details.en2_e_1}}</li>{{#if details.en2_e_2}}
+                <li>{{details.en2_e_2}}</li>{{/if}}{{#if details.en2_e_3}}
+                <li>{{details.en2_e_3}}</li>{{/if}}{{#if details.en2_e_4}}
+                <li>{{details.en2_e_4}}</li>{{/if}}{{#if details.en2_e_5}}
+                <li>{{details.en2_e_5}}</li>{{/if}}{{#if details.en2_e_6}}
+                <li>{{details.en2_e_6}}</li>{{/if}}
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      {{#if details.en3}}
+      <h3>EN3</h3>
+      <p>{{details.en3}}</p>{{/if}} {{#if details.en4}}
+      <h3>EN4</h3>
+      <p>{{details.en4}}</p>{{/if}} {{#if details.en5}}
+      <h3>EN5</h3>
+      <p>{{details.en5}}</p>{{/if}} {{#if details.en6}}
+      <h3>EN6</h3>
+      <p>{{details.en6}}</p>{{/if}} {{#if details.en7}}
+      <h3>EN7</h3>
+      <p>{{details.en7}}</p>{{/if}} {{#if details.en8}}
+      <h3>EN8</h3>
+      <p>{{details.en8}}</p>{{/if}} {{#if details.en9}}
+      <h3>EN9</h3>
+      <p>{{details.en9}}</p>{{/if}} {{#if details.en10}}
+      <h3>EN10</h3>
+      <p>{{details.en10}}</p>{{/if}}
+      <h2>Embedded/imported pdf</h2>
+      <object id="standard" data="http://www.nzqa.govt.nz/nqfdocs/ncea-resource/achievements/2014/as91634.pdf" type="application/pdf">
+        <embed src="http://www.nzqa.govt.nz/nqfdocs/ncea-resource/achievements/2014/as91634.pdf" type="application/pdf" />
+      </object>
+    </div>
+
+    <div class="ui bottom attached tab segment" data-tab="clarification-tab">
+      <h2>Clarification</h2> {{clarification}}
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="pdf-tab">
+      <h4>pdf documents</h4>
+      <object id="standard" data="http://www.nzqa.govt.nz/nqfdocs/ncea-resource/achievements/2014/as91634.pdf" type="application/pdf">
+        <embed src="http://www.nzqa.govt.nz/nqfdocs/ncea-resource/achievements/2014/as91634.pdf" type="application/pdf" />
+      </object>
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="exemplar-tab">yo</div>
+  </div>
